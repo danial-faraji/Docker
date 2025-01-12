@@ -371,5 +371,7 @@ docker-compose down
 ```
 
 #### References
-Based off cheatsheet from <https://devhints.io/docker-compose>.
+Based off document from: 
+<https://devhints.io/docker-compose>.
+<https://www.geeksforgeeks.org/docker-cheat-sheet>.
 
