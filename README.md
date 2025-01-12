@@ -8,99 +8,101 @@ This is a summary of commonly used Docker commands and their options, as well as
 
 ## Docker Login Commands:
 ```
-<!-- Log in to a Registry -->
+# Log in to a Registry
 docker login <registry>
-<!-- Login into Docker -->
+# Login into Docker
 docker login -u <username>
-<!-- Log in to a Registry -->
+# Log in to a Registry
 docker logout <registry>
 ```
 
 ## Image Management Commands:
 ```
-<!-- Listing Images -->
+# Listing Images
 docker images
-<!-- Build an image -->
+# Build an image
 docker build -t <image_name>:<tag> <Dockerfile_path>
 docker build -t myapp:v1 .
-<!-- Pulling an Image -->
+# Pulling an Image
 docker image pull <name_of_image>:<tag>
 docker image pull nginx:alpine
-<!-- Pull an image from a Docker Hub -->
+# Pull an image from a Docker Hub
 docker pull <image_name>
-<!-- Pushing an image -->
+# Pushing an image
 docker image push <username_of_registry:image_name:tag>
 ```
 
 ## Containers Management Commands:
 ```
-<!-- Check the Containers -->
+# Check the Containers
 docker ps
 docker ps -a
-<!-- Container Logs -->
+# Container Logs
 docker logs <container_id>
-<!-- Starting Containers -->
+# Starting Containers
 docker container start nginx
-<!-- Stopping Containers -->
+# Stopping Containers
 docker container stop nginx
-<!-- Restarting Containers -->
+# Restarting Containers
 docker container restart nginx
 ```
 
 ## Docker Network Commands:
 ```
-<!-- Creating a Network -->
+# Creating a Network
 docker network create <My_Network>
-<!-- Removing a Network -->
+# Removing a Network
 docker network rm <My_Network>
-<!-- Listing Networks -->
+# Listing Networks
 docker network ls
-<!-- Getting Information About a Network -->
+# Getting Information About a Network
 docker network inspect <My_Network>
 ```
 
 ## Docker Commands Removing Containers, Images, Volumes, And Networks:
 ```
-<!-- Removing an Image -->
+# Removing an Image
 docker rmi -f <image_name>
-<!-- Removing an Containers -->
+# Removing an Containers
 docker rm -f <container_id>
-<!-- Removing a Container and its Volume -->
+# Removing a Container and its Volume
 docker container rm -v <container_id>
-<!-- Removing all Images -->
+# Removing all Images
 docker image rm $(docker image ls -a -q)
-<!-- Removing all unused (containers, images, networks and volumes) -->
+# Removing all unused (containers, images, networks and volumes)
 docker system prune -f
-<!-- Clean all -->
+# Clean all
 docker system prune -a
 ```
 
 ## Docker Volume Commands:
 ```
-<!-- Creates a named volume -->
+# Creates a named volume
 docker volume create <my_volume>
-<!-- Lists the available volumes -->
+# Lists the available volumes
 docker volume ls
-<!-- Displays detailed information about a volume -->
+# Displays detailed information about a volume
 docker volume inspect <my_volume>
-<!-- Removes one or more volumes -->
+# Removes one or more volumes
 docker volume rm <my_volume>
-<!-- Removes all unused volumes -->
+# Removes all unused volumes
 docker volume prune
 ```
 
 ## Docker CP commands:
 ```
-<!-- Copies files or directories from the local filesystem to the specified container -->
+# Copies files or directories from the local filesystem to the specified container
 docker cp <my_file> <my_container>:</path/of/container>
-<!-- Copies files or directories from the specified container to the local filesystem -->
+# Copies files or directories from the specified container to the local filesystem
 docker cp <my_container>:</path/of/container/files> </path/of/local>
 ```
 
 ## Dockerfile Commands:
 ```
 - FROM : Specifies the base image for the build
-`FROM ubuntu:latest`
+```yaml
+FROM ubuntu:latest
+```
 - RUN : Executes a command inside the container during build time
 `RUN apt-get update && apt-get install -y curl`
 - CMD : Specifies the default command to run when the container starts
