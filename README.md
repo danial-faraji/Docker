@@ -132,6 +132,24 @@ docker cp <my_container>:</path/of/container/files> </path/of/local>
 ### Docker Compose
 Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
 
+#### Basic config example
+- docker-compose.yml :
+```yaml
+version: '3'
+services:
+  web:
+    build: .
+    # build from Dockerfile
+    context: ./Path
+    dockerfile: Dockerfile
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/code
+  redis:
+    image: redis
+```
+
 #### Building
 ```yaml
 web:
@@ -300,24 +318,6 @@ services:
 user: root
 # specifying both user and group with ids
 user: 0:0
-```
-
-#### Basic config example
-- docker-compose.yml :
-```yaml
-version: '3'
-services:
-  web:
-    build: .
-    # build from Dockerfile
-    context: ./Path
-    dockerfile: Dockerfile
-    ports:
-     - "5000:5000"
-    volumes:
-     - .:/code
-  redis:
-    image: redis
 ```
 
 #### Common commands
