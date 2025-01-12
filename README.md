@@ -7,7 +7,8 @@ This is a summary of commonly used Docker commands and their options, as well as
 - [Install CentOS](https://docs.docker.com/engine/install/centos/)
 
 ## Docker Login Commands:
-```<!-- Log in to a Registry -->
+```
+<!-- Log in to a Registry -->
 docker login <registry>
 <!-- Login into Docker -->
 docker login -u <username>
@@ -16,7 +17,8 @@ docker logout <registry>
 ```
 
 ## Image Management Commands:
-```<!-- Listing Images -->
+```
+<!-- Listing Images -->
 docker images
 <!-- Build an image -->
 docker build -t <image_name>:<tag> <Dockerfile_path>
@@ -31,7 +33,8 @@ docker image push <username_of_registry:image_name:tag>
 ```
 
 ## Containers Management Commands:
-```<!-- Check the Containers -->
+```
+<!-- Check the Containers -->
 docker ps
 docker ps -a
 <!-- Container Logs -->
@@ -45,7 +48,8 @@ docker container restart nginx
 ```
 
 ## Docker Network Commands:
-```<!-- Creating a Network -->
+```
+<!-- Creating a Network -->
 docker network create <My_Network>
 <!-- Removing a Network -->
 docker network rm <My_Network>
@@ -56,7 +60,8 @@ docker network inspect <My_Network>
 ```
 
 ## Docker Commands Removing Containers, Images, Volumes, And Networks:
-```<!-- Removing an Image -->
+```
+<!-- Removing an Image -->
 docker rmi -f <image_name>
 <!-- Removing an Containers -->
 docker rm -f <container_id>
@@ -71,7 +76,8 @@ docker system prune -a
 ```
 
 ## Docker Volume Commands:
-```<!-- Creates a named volume -->
+```
+<!-- Creates a named volume -->
 docker volume create <my_volume>
 <!-- Lists the available volumes -->
 docker volume ls
@@ -84,14 +90,16 @@ docker volume prune
 ```
 
 ## Docker CP commands:
-```<!-- Copies files or directories from the local filesystem to the specified container -->
+```
+<!-- Copies files or directories from the local filesystem to the specified container -->
 docker cp <my_file> <my_container>:</path/of/container>
 <!-- Copies files or directories from the specified container to the local filesystem -->
 docker cp <my_container>:</path/of/container/files> </path/of/local>
 ```
 
 ## Dockerfile Commands:
-```- FROM : Specifies the base image for the build
+```
+- FROM : Specifies the base image for the build
 `FROM ubuntu:latest`
 - RUN : Executes a command inside the container during build time
 `RUN apt-get update && apt-get install -y curl`
