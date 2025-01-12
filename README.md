@@ -98,37 +98,61 @@ docker cp <my_container>:</path/of/container/files> </path/of/local>
 ```
 
 ## Dockerfile Commands:
-```
 - FROM : Specifies the base image for the build
 ```yaml
 FROM ubuntu:latest
 ```
 - RUN : Executes a command inside the container during build time
-`RUN apt-get update && apt-get install -y curl`
+```yaml
+RUN apt-get update && apt-get install -y curl
+```
 - CMD : Specifies the default command to run when the container starts
-`CMD [“npm”, “start”]`
+```yaml
+CMD ["npm", "start"]
+```
 - EXPOSE : Informs Docker that the container listens on specific network ports at runtime
-`EXPOSE 80/tcp`
+```yaml
+EXPOSE 80/tcp
+```
 - ENV : Sets environment variables inside the container
-`ENV NODE_ENV=production`
+```yaml
+ENV NODE_ENV=production
+```
 - COPY : Copies files or directories from the build context into the container
-`COPY app.js /usr/src/app/`
+```yaml
+COPY app.js /usr/src/app/`
+```
 - ADD : Similar to COPY but supports additional features like URL retrieval and decompression
-`ADD https://example.com/file.tar.gz /usr/src/`
+```yaml
+ADD https://example.com/file.tar.gz /usr/src/`
+```
 - WORKDIR : Sets the working directory for subsequent instructions
-`WORKDIR /usr/src/app`
+```yaml
+WORKDIR /usr/src/app
+```
 - ARG : Defines variables that users can pass at build-time to the builder with the docker build command
-`ARG VERSION=1.0`
+```yaml
+ARG VERSION=1.0
+```
 - ENTRYPOINT : Configures a container to run as an executable
-`ENTRYPOINT ["python", "app.py"]`
+```yaml
+ENTRYPOINT ["python", "app.py"]
+```
 - VOLUME : Creates a mount point and assigns it to a specified volume
-`VOLUME /data`
+```yaml
+VOLUME /data
+```
 - USER : Sets the user or UID to use when running the image
-`USER appuser`
+```yaml
+USER appuser
+```
 - LABEL : Adds metadata to an image in the form of key-value pairs
-  `LABEL version="1.0" maintainer="Danial"`
+```yaml
+LABEL version="1.0" maintainer="Danial"
+```
 - ONBUILD : Configures commands to run when the image is used as the base for another build
-  `ONBUILD ADD . /app/src`
+```yaml
+ONBUILD ADD . /app/src
 ```
 
 ### Docker Compose
